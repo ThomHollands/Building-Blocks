@@ -13,8 +13,8 @@ def linear_regression(x, y):
     SS_xx = np.sum(x*x) - n*m_x*m_x 
   
     # calculating regression coefficients 
-    b_1 = SS_xy / SS_xx 
-    b_0 = m_y - b_1*m_x 
+    b_1 = SS_xy / SS_xx # there is an analytic answer so no need for any minimisation functions
+    b_0 = m_y - b_1*m_x # with 15 mins effort you can rederive this
   
     return(b_0, b_1) # tuple bc doesn't change
   
