@@ -20,8 +20,7 @@ def linear_regression(x, y):
   
 def plot_regression_line(x, y, b): 
     """ plotting the actual points as scatter plot """
-    plt.scatter(x, y, color = "m", 
-               marker = "o", s = 30) 
+    plt.scatter(x, y, s = 30) 
   
     # predicted response vector 
     y_pred = b[0] + b[1]*x 
