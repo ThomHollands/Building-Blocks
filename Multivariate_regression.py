@@ -41,7 +41,7 @@ def linear_regression_gradient_descent(X, Y, B, alpha=0.005, iterations=2000):
  # Difference b/w Hypothesis and Actual Y
         loss = h - Y 
  # Gradient Calculation -- Adds up all the differences apportioned to their corresponding X value.
-        gradient = X.dot(loss) / m # .T transposes X
+        gradient = X.dot(loss) / (m*1000) # .T transposes X
  # Changing Values of B using Gradient
         B = B - alpha * gradient
  # New Cost Value
@@ -80,16 +80,16 @@ y_test = Y[m:]
 # initialise B
 B_init = np.zeros(X_train.shape[0])
 B_test = [30,-20,50,-40]
+#B_test = [100]
 
-alpha = 0.0005
-iter_ = 10000
+alpha = 0.05 # how much to update the weights by each time
+iter_ = 100000 # these are very important
 
 newB, cost_history = linear_regression_gradient_descent(X_train, y_train, B_init, alpha, iter_)
-
 y_pred = predict(X_train,newB)
 
 ax1 = plt.subplot(121)
-ax1.hist((y_train-y_pred),bins=20)
+ax1.hist(y_train-y_pred,bins=20)
 ax2 = plt.subplot(122)
 ax2.loglog(cost_history)
 print(newB)
